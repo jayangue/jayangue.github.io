@@ -38,11 +38,12 @@ var finish_exam = (function(){var f = {};
         //Create Div
         jayui.des("DIV","main_div",jayui.main_area);
 
+        /*
         if(API_RESPONSE.created === 1){
             jayui.dec("P","main_div_title","Thank you for taking the exam. Your score was succesfully recorded.","main_div");
-        }else {
+        }else{
             jayui.dec("P","main_div_title","Your score was not recorded. Please report this problem to Jay C. Angue through Facebook.","main_div");
-        }
+        }*/
 
         //FINISH
         jayui.def("BUTTON","main_div_finish","BACK TO EXAM","main_div","onclick","main_page.initialize();");
