@@ -35,7 +35,7 @@ var finish_exam = (function(){var f = {};
         var section = LOCAL_STORAGE_DATA_PARSED[2][1];
         var main_score = score;
     
-        /*
+        
         var EXAM_ATTEMPTS_data = LocalStorage.getItem("g9_exam_attempts");
         var EXAM_ATTEMPTS = parseInt(EXAM_ATTEMPTS_data);
         var EXAM_ATTEMPTS_remaining = 10 - EXAM_ATTEMPTS;
@@ -50,7 +50,7 @@ var finish_exam = (function(){var f = {};
                 LocalStorage.setItem("g9_exam_attempts",EXAM_ATTEMPTS);
             });
         };
-        */
+        
 
         
 
