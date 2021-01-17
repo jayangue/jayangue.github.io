@@ -37,6 +37,9 @@ var finish_exam = (function(){var f = {};
     
         
         var EXAM_ATTEMPTS_data = LocalStorage.getItem("g9_exam_attempts");
+        if(EXAM_ATTEMPTS_data === null){
+            EXAM_ATTEMPTS_data = "0";
+        };
         var EXAM_ATTEMPTS = parseInt(EXAM_ATTEMPTS_data);
         var EXAM_ATTEMPTS_remaining = 10 - EXAM_ATTEMPTS;
 
@@ -50,6 +53,7 @@ var finish_exam = (function(){var f = {};
                 LocalStorage.setItem("g9_exam_attempts",EXAM_ATTEMPTS);
             });
         };
+        
         
 
         
