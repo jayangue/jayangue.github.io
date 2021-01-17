@@ -2,6 +2,8 @@ var finish_exam = (function(){var f = {};
 
 
     f.initialize = function(){
+        /*
+        */
 
         jayui.dcl(jayui.main_area);
 
