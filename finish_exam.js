@@ -31,6 +31,10 @@ var finish_exam = (function(){var f = {};
             "data": {"firstname": firstname, "lastname": lastname,"section":section,"score":main_score}
         }).then( response => {
             API_RESPONSE = response.data;
+            console.log(API_RESPONSE.created);
+            console.log(API_RESPONSE);
+            console.log(response.data);
+            console.log(response.data.created);
         });
 
 
