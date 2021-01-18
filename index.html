@@ -11,7 +11,23 @@
 <body>
 	<div id="MAIN_DIV"></div>
 	<script>
-		main_page.initialize();
+		window.onload = function(){
+
+			//Set Game Area
+			jayui.main_area = "MAIN_DIV";
+                (function(){ 
+                    function update_main_area(){
+                        requestAnimationFrame(update_main_area);
+                        jayui.dst(jayui.main_area,"width",parseInt(window.innerHeight).toString().concat("px"));
+                        jayui.dst(jayui.main_area,"height",parseInt(window.innerHeight).toString().concat("px"));
+                    };
+                    update_main_area();
+				}());
+				
+				main_page.initialize();
+		};
+
+
 	</script>
 
 </body>

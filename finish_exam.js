@@ -2,18 +2,17 @@ var finish_exam = (function(){var f = {};
 
 
     f.initialize = function(){
-        /*
-        */
 
         jayui.dcl(jayui.main_area);
 
         //Create Div
         jayui.des("DIV","main_div",jayui.main_area);
+        jayui.des("DIV","main_div_2",jayui.main_area);
         jayui.dec("P","main_div_title","Your score is being recorded so don't close the browser or the web page. Please wait...","main_div");
         
 
         //FINISH
-        jayui.def("BUTTON","main_div_finish","BACK TO EXAM","main_div","onclick","main_page.initialize();");
+        jayui.def("BUTTON","main_div_finish","BACK TO EXAM","main_div_2","onclick","main_page.initialize();");
 
 
 
@@ -46,14 +45,14 @@ var finish_exam = (function(){var f = {};
         var EXAM_ATTEMPTS_remaining = 10 - EXAM_ATTEMPTS;
 
         if(EXAM_ATTEMPTS_remaining >= 1){
-            axios.post('https://sheetdb.io/api/v1/gijdt883lbdsg',{
+            /*axios.post('https://sheetdb.io/api/v1/gijdt883lbdsg',{
             "data": {"firstname": firstname, "lastname": lastname,"section":section,"score":main_score}
-            }).then( response => {
+            }).then( response => {*/
                 jayui.dgi("main_div_title","Thank you for taking the exam. Your score was succesfully recorded.");
                 jayui.dec("P","main_div_title","You have " + EXAM_ATTEMPTS_remaining + " remaining attempts to take the exam for this device." ,"main_div");
                 EXAM_ATTEMPTS++;
                 LocalStorage.setItem("g9_exam_attempts",EXAM_ATTEMPTS);
-            });
+            //});
         };
         
         

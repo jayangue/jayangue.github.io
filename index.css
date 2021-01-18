@@ -1,13 +1,3 @@
-/**/
-#MAIN_DIV{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-}
 #main_div_1,
 #main_div_3,
 #main_div_4,
@@ -19,7 +9,6 @@
     flex-direction: column;
     width: 100%;
 }
-
 #main_div_2,
 #main_div_5{
     display: flex;
@@ -30,10 +19,18 @@
     width: 100%;
 }
 
+#main_div_1{height:3%;}
+#main_div_2{height:5%;}
+#main_div_3{height:40%;}
+#main_div_4{height:20%;}
+#main_div_5{height:5%;}
+#main_div_6{height:5%;}
+
+
+
 #main_div_title{
-    font-size: 150%;
+    font-size: 120%;
     font-weight: bold;
-    margin: 2%;
 }
 
 .personalinfos{
@@ -46,15 +43,22 @@
     width:100px;
 }
 
+
 #main_div_image{
-    width:50%;
-    height:100%;
+    margin:2%;
+    width:80%;
+    height:50%;
+}
+
+.option_number_sets{
+    font-size: 130%;
 }
 .answertitles{
     margin-left:20px;
+    font-size:130%;
 }
 .optionsets{
-    margin:10px;
+    margin:3px;
 }
 
 #main_div_next,
