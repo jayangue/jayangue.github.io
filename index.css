@@ -1,0 +1,155 @@
+#main_div_1,
+#main_div_3,
+#main_div_4,
+#main_div_6{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+#main_div_2,
+#main_div_5{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+}
+
+#main_div_1{
+    margin-top:3%;
+}
+#main_div_2{
+    margin-top:3%;
+}
+
+
+#main_div_title{
+    font-size: 120%;
+    font-weight: bold;
+}
+
+.personalinfos{
+    margin-left:3%;
+    font-size:110%;
+    font-weight: bold;
+}
+
+#personal_info_firstname_input,
+#personal_info_lastname_input,
+#personal_info_section_input{
+    width:100px;
+    font-weight: bold;
+    padding:0.5%;
+}
+
+#main_div_image{
+    margin:2%;
+    width:100%;
+}
+
+
+.option_number_sets{
+    font-size: 130%;
+}
+.answertitles{
+    margin-left:20px;
+    font-size:130%;
+}
+.optionsets{
+    margin:3px;
+}
+
+
+#main_div_next,
+#main_div_prev{
+    font-size:120%;
+    font-weight:bold;
+    padding:5px;
+    margin:2%;
+}
+
+#main_div_finish{
+    font-size:120%;
+    font-weight:bold;
+    padding:5px;
+    margin:2%;
+    margin-left:10%;
+}
+
+
+/* ====================================================== */
+#instructions_div{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+#instructions_title{
+    font-weight:bold;
+    font-size:200%;
+    margin:3%;
+    text-align: center;
+}
+
+#instructions_warning{
+    font-weight:bold;
+    font-size:200%;
+    margin:3%;
+    font-style: italic;
+    text-align: center;
+}
+
+#instructions_txt{
+    font-size:250%;
+    margin:3%;
+    text-align: center;
+}
+
+#instructions_finish{
+    font-size:250%;
+    margin:5%;
+    font-weight:bold;
+    padding:2%;
+}
+
+/*=========================================================*/
+#finish_div{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+#finish_main_txt{
+    font-weight:bold;
+    font-size:200%;
+    margin:5%;
+    text-align: center;
+}
+
+#finish_main_txt2{
+    font-size:200%;
+    margin:5%;
+    font-style: italic;
+    text-align: center;
+}
+
+
+#finish_back_button{
+    font-size:200%;
+    margin:5%;
+    font-weight:bold;
+    padding:2%;
+}
+
+
+
+
+
