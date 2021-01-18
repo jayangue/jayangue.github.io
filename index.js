@@ -1,4 +1,4 @@
-/**/
+
  
 
 var main_page = (function(){var f = {};
@@ -76,6 +76,21 @@ var main_page = (function(){var f = {};
         //Picture
         jayui.def("IMG","main_div_image","","main_div_3","onclick","");
         jayui.dat("main_div_image","src","Pictures/g9_exam_1.png");
+        (function(){ 
+            function update_image_size(){
+                requestAnimationFrame(update_image_size);
+                var w = parseInt(window.innerWidth);
+                var h = parseInt(window.innerHeight);
+                if(w >= 600){
+                    h = h * 0.50;
+                }else{
+                    h = h * 0.80;
+                };
+                jayui.dst("main_div_image","width",parseInt(window.innerWidth).toString().concat("px"));
+                jayui.dst("main_div_image","height",h.toString().concat("px"));
+            };
+            update_image_size();
+        }());
 
         //Options Divs
         main_run();
