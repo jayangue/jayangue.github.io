@@ -27,12 +27,10 @@ var main_page = (function(){var f = {};
 
 
         var LocalStorage = window.localStorage;
-        //LocalStorage.clear();
         var LOCAL_STORAGE_DATA = LocalStorage.getItem("g9_exam");
         var LOCAL_STORAGE_DATA_PARSED = JSON.parse(LOCAL_STORAGE_DATA);
 
         if(LOCAL_STORAGE_DATA_PARSED != null){
-            console.log(LOCAL_STORAGE_DATA_PARSED);
             main_page.data_firstname = LOCAL_STORAGE_DATA_PARSED[0][1];
             main_page.data_lastname = LOCAL_STORAGE_DATA_PARSED[1][1];
             main_page.data_section = LOCAL_STORAGE_DATA_PARSED[2][1];
@@ -47,13 +45,12 @@ var main_page = (function(){var f = {};
         jayui.dcl(jayui.main_area);
         
         //Create DIVS
-        jayui.des("DIV","main_div",jayui.main_area);
-        jayui.des("DIV","main_div_1","main_div");
-        jayui.des("DIV","main_div_2","main_div");
-        jayui.des("DIV","main_div_3","main_div");
-        jayui.des("DIV","main_div_4","main_div");
-        jayui.des("DIV","main_div_5","main_div");
-        jayui.des("DIV","main_div_6","main_div");
+        jayui.des("DIV","main_div_1",jayui.main_area);
+        jayui.des("DIV","main_div_2",jayui.main_area);
+        jayui.des("DIV","main_div_3",jayui.main_area);
+        jayui.des("DIV","main_div_4",jayui.main_area);
+        jayui.des("DIV","main_div_5",jayui.main_area);
+        jayui.des("DIV","main_div_6",jayui.main_area);
 
         //Title
         jayui.dec("P","main_div_title","FILIPINO GRADE 9 EXAM","main_div_1");
@@ -62,17 +59,17 @@ var main_page = (function(){var f = {};
         jayui.dec("TXT","personal_info_firstname","FIRST NAME: ","main_div_2");
         jayui.dat("personal_info_firstname","class","personalinfos");
         jayui.des("INPUT","personal_info_firstname_input","main_div_2");
-        jayui.dat("personal_info_firstname_input","value",main_page.data_firstname);
+        jayui.dsv("personal_info_firstname_input",main_page.data_firstname);
         
         jayui.dec("TXT","personal_info_lastname","LAST NAME: ","main_div_2");
         jayui.dat("personal_info_lastname","class","personalinfos");
         jayui.des("INPUT","personal_info_lastname_input","main_div_2");
-        jayui.dat("personal_info_lastname_input","value",main_page.data_lastname);
+        jayui.dsv("personal_info_lastname_input",main_page.data_lastname);
         
         jayui.dec("TXT","personal_info_section","SECTION: ","main_div_2");
         jayui.dat("personal_info_section","class","personalinfos");
         jayui.des("INPUT","personal_info_section_input","main_div_2");
-        jayui.dat("personal_info_section_input","value",main_page.data_section);
+        jayui.dsv("personal_info_section_input",main_page.data_section);
 
 
 
@@ -90,26 +87,36 @@ var main_page = (function(){var f = {};
         //FINISH
         jayui.def("BUTTON","main_div_finish","FINISH EXAM","main_div_6","onclick","finish_exam.initialize();");
 
+        function save_data(){
+
+            try{
+                jayui.dgi("personal_info_firstname_input");
+                main_page.data_firstname = jayui.dgv("personal_info_firstname_input");
+                main_page.data_lastname = jayui.dgv("personal_info_lastname_input");
+                main_page.data_section = jayui.dgv("personal_info_section_input");
+
+                var main_data = [
+                                    ["first_name",main_page.data_firstname],
+                                    ["last_name",main_page.data_lastname],
+                                    ["data_section",main_page.data_section],
+                                    ["current_page",main_page.current_page],
+                                    ["option_data",main_page.option_data]
+                                ];
+                var main_data_stored = JSON.stringify(main_data);
+                LocalStorage.setItem("g9_exam",main_data_stored);
+               //console.log(main_data_stored);
+            }catch(e){
+               
+            };
+            
+        };
 
         var main_page_checker = setInterval(function(){
             
-            main_page.data_firstname = jayui.dgv("personal_info_firstname_input");
-            main_page.data_lastname = jayui.dgv("personal_info_lastname_input");
-            main_page.data_section = jayui.dgv("personal_info_section_input");
-
-            var main_data = [
-                                ["first_name",main_page.data_firstname],
-                                ["last_name",main_page.data_lastname],
-                                ["data_section",main_page.data_section],
-                                ["current_page",main_page.current_page],
-                                ["option_data",main_page.option_data]
-                            ];
-            var main_data_stored = JSON.stringify(main_data);
-            LocalStorage.setItem("g9_exam",main_data_stored);
-
             //This part is for checking
             try{
                 jayui.dgi("personal_info_firstname_input");
+                save_data();
             }catch(e){
                 clearInterval(main_page_checker);
             };
@@ -120,10 +127,10 @@ var main_page = (function(){var f = {};
 
     f.next_page = function(){
 
-	    if(main_page.current_page < 10){
+	    if(main_page.current_page < 25){
 		    main_page.current_page++;
 		    main_run();
-	    }else if(main_page.current_page >= 10){
+	    }else if(main_page.current_page >= 25){
 		    main_page.current_page = 1;
 		    main_run();
 	    };
@@ -137,7 +144,7 @@ var main_page = (function(){var f = {};
 		 main_page.current_page--;
 		 main_run();
 	 }else if(main_page.current_page <=  1){
-		 main_page.current_page = 10;
+		 main_page.current_page = 25;
 		 main_run();
 	 }
     };
@@ -146,8 +153,8 @@ var main_page = (function(){var f = {};
     function main_run(){
     	jayui.dat("main_div_image","src","PICTURES/g9_exam_"+main_page.current_page+".png");
 	    
-	    var num_set = main_page.current_page * 5;
-	    var start_num = num_set - 4;
+	    var num_set = main_page.current_page * 2;
+	    var start_num = num_set - 1;
 	    var end_num = num_set;
         jayui.dcl("main_div_4");
         
@@ -164,6 +171,8 @@ var main_page = (function(){var f = {};
             jayui.des("DIV","main_div_optionset_"+i1,"main_div_4");
             jayui.dat("main_div_optionset_"+i1,"class","optionsets");
             jayui.dec("TXT","option_number_set_"+i1,i1+".) ","main_div_optionset_"+i1);
+            jayui.dat("option_number_set_"+i1,"class","option_number_sets");
+               
 
             for(var i2 = 1; i2 <= 4; i2++){
                 jayui.dec("TXT","main_div_answertitle_"+i1+"_option_"+i2,option_title[i2],"main_div_optionset_"+i1);
